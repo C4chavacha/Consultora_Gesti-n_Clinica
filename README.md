@@ -83,6 +83,10 @@ Las fotografías web optimizadas están en `public/assets/team/`. Los originales
 
 Los archivos de Streamlit (`app.py`, `content.py`, `services/`, `styles/` y `tests/`) se mantienen temporalmente como referencia y rollback. Vercel detecta `package.json` y publica la aplicación Next.js.
 
+## Reutilizar la estructura
+
+`PROMPT_NUEVO_PROYECTO.md` contiene un prompt maestro parametrizable para crear otro negocio con la misma arquitectura por vistas, el mismo flujo de diseño y la validación Next.js/Vercel, sin copiar la marca ni el contenido de esta consultora.
+
 ## Placeholders pendientes
 
 - `[NOMBRE DE LA CONSULTORA]`
