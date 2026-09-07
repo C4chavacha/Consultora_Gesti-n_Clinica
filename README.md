@@ -1,10 +1,11 @@
 # Web Consultora
 
-Landing comercial en Streamlit para una consultora de gestión clínica, transformación operacional, inteligencia de negocios e innovación en salud. La consultora se presenta como marca principal y **Equia** como su plataforma tecnológica modular.
+Sitio comercial en Streamlit para una consultora de gestión clínica, transformación operacional, inteligencia de negocios e innovación en salud. La consultora se presenta como marca principal y **Equia** como su plataforma tecnológica modular.
 
 ## Estado de esta versión
 
-- Landing responsive con navegación por secciones.
+- Experiencia responsive organizada en ocho vistas enfocadas, sin una landing continua.
+- Navegación directa por URL, estado activo y controles anterior/siguiente.
 - Servicios, módulos de Equia, metodología, equipo y preguntas frecuentes.
 - Retratos oficiales integrados para Rodrigo Hernández, Felipe Muñoz y Fabián Cifuentes; Sofía Vergara mantiene un bloque provisional hasta recibir su fotografía.
 - Formulario validado con prevención básica de duplicados por sesión.
@@ -56,7 +57,7 @@ Antes de integrar un CRM, agregue autenticación del webhook, limitación de fre
 python -m unittest discover -s tests -v
 ```
 
-Las pruebas cubren render inicial, validación correcta e incorrecta, modo demostración, huella de duplicados y confirmación de entrega mediante webhook.
+Las pruebas cubren las ocho vistas públicas, fallback de rutas inválidas, render inicial, validación correcta e incorrecta, modo demostración, huella de duplicados y confirmación de entrega mediante webhook.
 
 ## Despliegue en Streamlit Community Cloud
 
