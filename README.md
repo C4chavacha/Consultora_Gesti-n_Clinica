@@ -1,39 +1,36 @@
 # Web Consultora
 
-Sitio comercial en Streamlit para una consultora de gestión clínica, transformación operacional, inteligencia de negocios e innovación en salud. La consultora se presenta como marca principal y **Equia** como su plataforma tecnológica modular.
+Sitio comercial en Next.js para una consultora de gestión clínica, transformación operacional, inteligencia de negocios e innovación en salud. La consultora se presenta como marca principal y **Equia** como su plataforma tecnológica modular.
 
 ## Estado de esta versión
 
+- Aplicación Next.js 15 lista para desplegar en Vercel.
 - Experiencia responsive organizada en ocho vistas enfocadas, sin una landing continua.
 - Navegación directa por URL, estado activo y controles anterior/siguiente.
 - Servicios, módulos de Equia, metodología, equipo y preguntas frecuentes.
 - Retratos oficiales integrados para Rodrigo Hernández, Felipe Muñoz y Fabián Cifuentes; Sofía Vergara mantiene un bloque provisional hasta recibir su fotografía.
 - Formulario validado con prevención básica de duplicados por sesión.
 - Entrega opcional por webhook. Sin configuración, el formulario funciona en modo demostración y no afirma que el mensaje fue enviado.
-- Contenedor Docker y configuración compatible con Streamlit Community Cloud.
+- Endpoint interno `/api/contact` compatible con las funciones de Vercel.
 
 ## Instalación local
 
-Requiere Python 3.12 o una versión compatible con las dependencias declaradas.
+Requiere Node.js 20 o superior.
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-streamlit run app.py
+npm install
+npm run dev
 ```
 
-Abra `http://localhost:8501`.
+Abra `http://localhost:3000`.
 
 ## Configuración del formulario
 
 El formulario no guarda datos localmente. Para activar una entrega real:
 
-1. Copie `.streamlit/secrets.toml.example` como `.streamlit/secrets.toml`.
-2. Configure `CONTACT_WEBHOOK_URL` con una URL HTTPS que reciba JSON por `POST`.
+1. Configure `CONTACT_WEBHOOK_URL` en las variables de entorno de Vercel con una URL HTTPS que reciba JSON por `POST`.
+2. Opcionalmente defina `NEXT_PUBLIC_SITE_URL` con el dominio público para los metadatos sociales.
 3. Pruebe el flujo completo con datos ficticios antes de publicar.
-
-También puede definirse la variable de entorno `CONTACT_WEBHOOK_URL`. Las variables de entorno tienen prioridad sobre `st.secrets`.
 
 Si no existe una URL configurada, la interfaz avisa que está en **modo demostración** y confirma solamente que los datos fueron validados, no enviados.
 
@@ -54,28 +51,20 @@ Antes de integrar un CRM, agregue autenticación del webhook, limitación de fre
 ## Pruebas
 
 ```powershell
-python -m unittest discover -s tests -v
+npm test
+npm run typecheck
+npm run build
 ```
 
-Las pruebas cubren las ocho vistas públicas, fallback de rutas inválidas, render inicial, validación correcta e incorrecta, modo demostración, huella de duplicados y confirmación de entrega mediante webhook.
+Las pruebas automatizadas cubren las ocho vistas, fallback de rutas inválidas, módulos de Equia y validación correcta e incorrecta del contacto. La validación HTTP comprueba además las ocho respuestas públicas, el rechazo de solicitudes incompletas y el modo demostración.
 
-## Despliegue en Streamlit Community Cloud
+## Despliegue en Vercel
 
-1. Publique esta carpeta en un repositorio Git.
-2. Cree una aplicación y seleccione `app.py` como archivo principal.
-3. Agregue `CONTACT_WEBHOOK_URL` en la sección de secretos de la plataforma.
-4. Revise el sitio completo y el formulario antes de enlazar un dominio o difundirlo.
-
-Esta alternativa simplifica una demostración inicial. Revise las capacidades vigentes de dominio, privacidad y operación de la plataforma antes de elegirla para producción.
-
-## Despliegue con Docker
-
-```powershell
-docker build -t web-consultora .
-docker run --rm -p 8501:8501 -e CONTACT_WEBHOOK_URL="https://ejemplo" web-consultora
-```
-
-Un servicio que ejecute contenedores puede publicar esta imagen y conectar posteriormente un dominio propio. Configure HTTPS, secretos administrados, monitoreo, protección contra abuso y una política formal de datos antes de producción.
+1. Importe en Vercel el repositorio `C4chavacha/Consultora_Gesti-n_Clinica`.
+2. Framework Preset: **Next.js**. Root Directory: `.`.
+3. Mantenga Build Command e Install Command con los valores automáticos de Next.js.
+4. Agregue `CONTACT_WEBHOOK_URL` solo cuando exista un canal productivo revisado.
+5. Despliegue y pruebe las ocho vistas y el formulario antes de conectar el dominio.
 
 ## Analítica
 
@@ -83,12 +72,16 @@ Un servicio que ejecute contenedores puede publicar esta imagen y conectar poste
 
 ## Actualización de contenidos
 
-- Textos y listas: `content.py`.
-- Estilos y responsive: `styles/site.css`.
-- Entrega del formulario: `services/contact_service.py`.
-- Marca Equia y tarjeta social: `assets/`.
+- Textos y listas: `lib/content.ts`.
+- Estilos y responsive: `app/globals.css`.
+- Entrega del formulario: `app/api/contact/route.ts` y `lib/contact.ts`.
+- Marca Equia y tarjeta social: `public/assets/` y `public/og.png`.
 
-Las fotografías web optimizadas están en `assets/team/`. Los originales se conservan localmente en `FotosDirectores/`, carpeta excluida del repositorio. La asociación de cada imagen se administra en `TEAM`, dentro de `content.py`. Use encuadre, iluminación y proporciones consistentes para futuras incorporaciones.
+Las fotografías web optimizadas están en `public/assets/team/`. Los originales se conservan localmente en `FotosDirectores/`, carpeta excluida del repositorio. La asociación de cada imagen se administra en `team`, dentro de `lib/content.ts`. Use encuadre, iluminación y proporciones consistentes para futuras incorporaciones.
+
+## Respaldo de la versión anterior
+
+Los archivos de Streamlit (`app.py`, `content.py`, `services/`, `styles/` y `tests/`) se mantienen temporalmente como referencia y rollback. Vercel detecta `package.json` y publica la aplicación Next.js.
 
 ## Placeholders pendientes
 

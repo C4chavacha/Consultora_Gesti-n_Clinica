@@ -9,6 +9,10 @@ __pycache__/
 !.env.example
 .DS_Store
 Thumbs.db
+node_modules/
+.next/
+.vercel/
+coverage/
 
 # Material de trabajo local que no forma parte de la web publicada
 FotosDirectores/
