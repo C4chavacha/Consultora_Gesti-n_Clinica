@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+
+# Material de trabajo local que no forma parte de la web publicada
+FotosDirectores/
+captures/
+Nueva carpeta/
