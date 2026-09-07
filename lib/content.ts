@@ -60,6 +60,30 @@ export const methodology = [
   { number: "07", title: "Acompañamiento", body: "Seguimos resultados, aprendizajes y oportunidades de mejora continua." }
 ] as const;
 
+export const methodologyPhases = [
+  {
+    number: "01",
+    name: "Comprender",
+    headline: "Mirar antes de actuar.",
+    body: "Entendemos el contexto y acordamos dónde concentrar el esfuerzo.",
+    steps: ["01", "02"]
+  },
+  {
+    number: "02",
+    name: "Transformar",
+    headline: "Diseñar y probar.",
+    body: "Convertimos la intención en una solución aplicable y verificable.",
+    steps: ["03", "04", "05"]
+  },
+  {
+    number: "03",
+    name: "Sostener",
+    headline: "Dejar capacidad instalada.",
+    body: "Acompañamos a los equipos para que el cambio pueda mantenerse.",
+    steps: ["06", "07"]
+  }
+] as const;
+
 export const team = [
   { initials: "RH", name: "Rodrigo Hernández", role: "Socio fundador y Director Médico", bio: "Lidera la visión clínica y orienta soluciones alineadas con las necesidades asistenciales y la gestión médica.", photo: "/assets/team/rodrigo-hernandez.jpg" },
   { initials: "FM", name: "Felipe Muñoz", role: "Socio fundador y Director de Operaciones Clínicas", bio: "Conecta el análisis de procesos clínico-operacionales con su implementación en terreno.", photo: "/assets/team/felipe-munoz.jpg" },

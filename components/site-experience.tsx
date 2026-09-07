@@ -7,7 +7,7 @@ import {
   Route, SearchCheck, Shuffle, Stethoscope, UsersRound, Workflow
 } from "lucide-react";
 import { ContactForm } from "./contact-form";
-import { capabilities, faqs, methodology, modules, services, site, team, ViewKey, views } from "@/lib/content";
+import { capabilities, faqs, methodology, methodologyPhases, modules, services, site, team, ViewKey, views } from "@/lib/content";
 
 const icons: Record<string, ComponentType<LucideProps>> = {
   Stethoscope, Workflow, ChartNoAxesCombined, Cpu, SearchCheck, Shuffle,
@@ -106,10 +106,21 @@ function EquiaView() {
 
 function MethodView() {
   return <>
-    <SectionIntro kicker="METODOLOGÍA" title={<>Una ruta clara,<br />adaptada a cada realidad.</>} copy="Cada proyecto se ajusta a la información disponible, la madurez institucional y el nivel de cambio que la organización puede sostener." />
-    <ol className="roadmap" aria-label="Siete etapas de la metodología">
-      {methodology.map((step) => <li key={step.number}><span className="road-node">{step.number}</span><div><small>ETAPA {step.number}</small><h2>{step.title}</h2><p>{step.body}</p></div></li>)}
-    </ol>
+    <SectionIntro kicker="METODOLOGÍA" title={<>Tres momentos para<br />convertir estrategia en cambio.</>} copy="Una forma simple de explicar cómo trabajamos: comprender el desafío, transformar la operación y dejar capacidades que puedan sostenerse." />
+    <div className="method-phases" aria-label="Metodología en tres momentos">
+      {methodologyPhases.map((phase) => (
+        <article className="method-phase" key={phase.number}>
+          <div className="phase-heading"><span>{phase.number}</span><small>{phase.name}</small></div>
+          <h2>{phase.headline}</h2>
+          <p>{phase.body}</p>
+          <ol>
+            {methodology.filter((step) => phase.steps.some((number) => number === step.number)).map((step) => (
+              <li key={step.number}><b>{step.number}</b><div><strong>{step.title}</strong><span>{step.body}</span></div></li>
+            ))}
+          </ol>
+        </article>
+      ))}
+    </div>
   </>;
 }
 
