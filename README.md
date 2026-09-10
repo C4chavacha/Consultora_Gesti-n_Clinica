@@ -8,7 +8,7 @@ Sitio comercial en Next.js para una consultora de gestión clínica, transformac
 - Experiencia responsive organizada en ocho vistas enfocadas, sin una landing continua.
 - Navegación directa por URL, estado activo y controles anterior/siguiente.
 - Servicios, módulos de Equia, metodología, equipo y preguntas frecuentes.
-- Retratos oficiales integrados para Rodrigo Hernández, Felipe Muñoz y Fabián Cifuentes; Sofía Vergara mantiene un bloque provisional hasta recibir su fotografía.
+- Retratos oficiales integrados para Rodrigo Hernández, Felipe Muñoz, Sofía Vergara y Fabián Cifuentes.
 - Formulario validado con prevención básica de duplicados por sesión.
 - Entrega opcional por webhook. Sin configuración, el formulario funciona en modo demostración y no afirma que el mensaje fue enviado.
 - Endpoint interno `/api/contact` compatible con las funciones de Vercel.
@@ -90,7 +90,6 @@ Los archivos de Streamlit (`app.py`, `content.py`, `services/`, `styles/` y `tes
 ## Placeholders pendientes
 
 - `[NOMBRE DE LA CONSULTORA]`
-- fotografía oficial de Sofía Vergara;
 - correo y teléfono corporativos;
 - dominio y LinkedIn;
 - año del pie de página;

@@ -87,7 +87,7 @@ export const methodologyPhases = [
 export const team = [
   { initials: "RH", name: "Rodrigo Hernández", role: "Socio fundador y Director Médico", bio: "Lidera la visión clínica y orienta soluciones alineadas con las necesidades asistenciales y la gestión médica.", photo: "/assets/team/rodrigo-hernandez.jpg" },
   { initials: "FM", name: "Felipe Muñoz", role: "Socio fundador y Director de Operaciones Clínicas", bio: "Conecta el análisis de procesos clínico-operacionales con su implementación en terreno.", photo: "/assets/team/felipe-munoz.jpg" },
-  { initials: "SV", name: "Sofía Vergara", role: "Socia fundadora y Directora de Flujo Hospitalario", bio: "Lidera soluciones de capacidad, hospitalización, coordinación asistencial y continuidad del flujo.", photo: null },
+  { initials: "SV", name: "Sofía Vergara", role: "Socia fundadora y Directora de Flujo Hospitalario", bio: "Lidera soluciones de capacidad, hospitalización, coordinación asistencial y continuidad del flujo.", photo: "/assets/team/sofia-vergara-edited.png" },
   { initials: "FC", name: "Fabián Cifuentes", role: "Socio fundador y Director Ejecutivo", bio: "Lidera la estrategia, el desarrollo de negocios y la evolución de Equia, integrando gestión, analítica y tecnología.", photo: "/assets/team/fabian-cifuentes.jpg" }
 ] as const;
 

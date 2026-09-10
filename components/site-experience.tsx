@@ -128,7 +128,7 @@ function TeamView() {
   return <>
     <SectionIntro kicker="EQUIPO" title={<>Experiencia ejecutiva<br />puesta al servicio del cambio.</>} copy="Una mirada multidisciplinaria para conectar la práctica clínica, los flujos hospitalarios, la gestión y la tecnología." />
     <div className="team-grid">{team.map((person) => <article className="team-card" key={person.initials}>
-      {person.photo ? <div className="portrait"><Image src={person.photo} alt={`Retrato de ${person.name}`} fill sizes="(max-width: 700px) 100vw, 25vw" /></div> : <div className="portrait placeholder"><strong>{person.initials}</strong><small>FOTOGRAFÍA<br />PRÓXIMAMENTE</small></div>}
+      <div className="portrait"><Image src={person.photo} alt={`Retrato de ${person.name}`} fill sizes="(max-width: 700px) 100vw, 25vw" /></div>
       <div className="team-copy"><span>{person.role}</span><h2>{person.name}</h2><p>{person.bio}</p></div>
     </article>)}</div>
   </>;
